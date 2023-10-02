@@ -46,6 +46,34 @@ export default function TaskGroup({status, lists, setLists, currentList}) {
         }
     }
 
+    function handleModify(id) {
+        const name = prompt("New task name:");
+        const descrip = prompt("New task description:");
+        if (name && descrip) {
+            setLists((prevLists) =>
+                prevLists.map((list) => {
+                    if (list.title === currentList.title) {
+                        const taskList = list[status];
+                        const index = taskList.findIndex((task) => task.id === id);
+                        const modifiedTask = {
+                            ...taskList[index],
+                            name,
+                            descrip,
+                        };
+                        taskList.splice(index, 1);
+                        taskList.splice(index, 0, modifiedTask);
+                        return {
+                            ...list,
+                            [status]: [...taskList]
+                        }
+                    } else {
+                        return list;
+                    }
+                })
+            );
+        }
+    }
+
     return (
         <div className = "task-group">
             {status}
@@ -76,6 +104,7 @@ export default function TaskGroup({status, lists, setLists, currentList}) {
                                                     provided = {provided}
                                                     snapshot = {snapshot}
                                                     handleRemove = {handleRemove}
+                                                    handleModify = {handleModify}
                                                     />
                                                 )
                                             }
