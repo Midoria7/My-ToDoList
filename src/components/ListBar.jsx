@@ -4,16 +4,20 @@ export default function ListBar({lists, setLists, currentList, setCurrentList}) 
     function handleAddList() {
         const title = prompt("Enter the title of the new list:");
         if (title) {
+            if (lists.find((list) => list.title === title)) {
+                alert("List with same name already exists!");
+                return;
+            }
             setLists((prevLists) => {
-                return [
-                    ...prevLists, 
-                    {
-                        title: title,
-                        ["To Do"]: [],
-                        ["Doing"]: [],
-                        ["Done"]: [],
-                    }
-                ];
+                const newLists = [...prevLists];
+                newLists.push({
+                    title: title,
+                    ["To Do"]: [],
+                    ["Doing"]: [],
+                    ["Done"]: [],
+                });
+                setCurrentList(newLists[newLists.length - 1]);
+                return newLists;
             });
         }
     }

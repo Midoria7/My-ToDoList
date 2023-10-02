@@ -11,9 +11,10 @@
 }
 
 .delete-list-button {
+    width: 80px;
     font-size: 0.5em;
     margin-left: 20px;
-    padding: 5px 5px;
+    padding: 5px 10px;
     background: none;
     border: 2px solid rgb(253, 95, 95);
     border-radius: 5px;
@@ -24,6 +25,24 @@
 .delete-list-button:hover {
     color: #fff;
     background-color: rgb(253, 95, 95);
+    transition: 0.5s;
+}
+
+.rename-list-button {
+    width: 80px;
+    font-size: 0.5em;
+    margin-left: 20px;
+    padding: 5px 10px;
+    background: none;
+    border: 2px solid rgb(122, 206, 230);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.rename-list-button:hover {
+    color: #fff;
+    background-color: rgb(122, 206, 230);
     transition: 0.5s;
 }
 

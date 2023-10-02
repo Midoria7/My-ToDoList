@@ -8,6 +8,10 @@ export default function TaskGroup({status, lists, setLists, currentList}) {
         const name = prompt("Enter task name:");
         const descrip = prompt("Enter task description:");
         if (name && descrip) {
+            if (lists.find((list) => list.title === currentList.title)?.[status].find((task) => task.name === name)) {
+                alert("Task with same name already exists!");
+                return;
+            }
             setLists((prevLists) => {
                 const newLists = [...prevLists];
                 const index = prevLists.findIndex((list) => list.title === currentList.title);
@@ -50,6 +54,10 @@ export default function TaskGroup({status, lists, setLists, currentList}) {
         const name = prompt("New task name:");
         const descrip = prompt("New task description:");
         if (name && descrip) {
+            if (lists.find((list) => list.title === currentList.title)?.[status].find((task) => task.name === name)) {
+                alert("Task with same name already exists!");
+                return;
+            }
             setLists((prevLists) =>
                 prevLists.map((list) => {
                     if (list.title === currentList.title) {

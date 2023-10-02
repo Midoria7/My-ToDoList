@@ -16,6 +16,30 @@ export default function TaskBox({lists, setLists, currentList, setCurrentList}) 
             });
     }
 
+    function handleRename() {
+        const title = prompt("Enter new list title:");
+        if (title) {
+            if (lists.find((list) => list.title === title)) {
+                alert("List with same name already exists!");
+                return;
+            }
+            setLists((prevLists) => {
+                const newLists = [...prevLists];
+                const index = prevLists.findIndex((list) => list.title === currentList.title);
+                const temp = newLists[index];
+                newLists.splice(index, 1, 
+                    {
+                        ...temp,
+                        title: title,
+
+                    }
+                );
+                setCurrentList(newLists[index]);
+                return newLists;
+            });
+        }
+    }
+
     function handleDragEnd(result) {
         if (!result.destination) return;
         const {source, destination} = result;
@@ -57,6 +81,7 @@ export default function TaskBox({lists, setLists, currentList, setCurrentList}) 
         <div className = "task-box">
             <header className = "task-box-header">
                 <h1 className = "task-box-title">Tasks</h1>
+                <button className = "rename-list-button" onClick = {handleRename}> Rename </button>
                 <button className = "delete-list-button" onClick = {handleRemove}> Delete </button>
             </header>
             <DragDropContext onDragEnd = {(result) => handleDragEnd(result)}>
