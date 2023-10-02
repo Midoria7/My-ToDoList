@@ -1,3 +1,5 @@
+import TaskGroup from "./TaskGroup";
+
 export default function TaskBox({lists, setLists, currentList, setCurrentList}) {
     function handleRemove() {
         if (confirm("Delete this list?"))
@@ -19,6 +21,11 @@ export default function TaskBox({lists, setLists, currentList, setCurrentList}) 
                 <h1 className = "task-box-title">Tasks</h1>
                 <button className = "delete-list-button" onClick = {handleRemove}> Delete </button>
             </header>
+            <div className = "task-box-body">
+                <TaskGroup title = "To Do"/>
+                <TaskGroup title = "Doing"/>
+                <TaskGroup title = "Done"/>
+            </div>
         </div>
     )
 }
