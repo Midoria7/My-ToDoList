@@ -45,4 +45,60 @@
     padding: 17px 25px;
     font-size: 1.4em;
     font-weight: 400;
+    margin: 13px auto;
+}
+
+.add-task-button {
+    text-align: center;
+    width: 80%;
+    height: 45px;
+    font-size: 1.3em;
+    line-height: 45px;
+    background-color: #eaf1f0;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    outline: none;
+}
+
+.add-task-button:hover {
+    background-color: #dfe2e2;
+}
+
+.task-container {
+    width: 100%;
+    max-height: 600px;
+    /* background-color: lightblue; */
+    overflow: auto;
+}
+
+.task {
+    width: calc(100% - 30px);
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+.task-name {
+    font-weight: 300;
+}
+
+.task-name::before {
+    content: '●';
+    font-style: normal;
+    color: rgb(122, 206, 230);
+    margin-right: 10px;
+}
+
+.task-descrip {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.8em;
+    color: #9c9c9c;
+    word-wrap: break-word;
+    padding: 8px;
+    line-height: 1.1em;
 }

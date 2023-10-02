@@ -22,9 +22,24 @@ export default function TaskBox({lists, setLists, currentList, setCurrentList}) 
                 <button className = "delete-list-button" onClick = {handleRemove}> Delete </button>
             </header>
             <div className = "task-box-body">
-                <TaskGroup title = "To Do"/>
-                <TaskGroup title = "Doing"/>
-                <TaskGroup title = "Done"/>
+                <TaskGroup 
+                status = "To Do"
+                lists = {lists}
+                setLists = {setLists}
+                currentList = {currentList}
+                />
+                <TaskGroup 
+                status = "Doing"
+                lists = {lists}
+                setLists = {setLists}
+                currentList = {currentList}
+                />
+                <TaskGroup 
+                status = "Done"
+                lists = {lists}
+                setLists = {setLists}
+                currentList = {currentList}
+                />
             </div>
         </div>
     )
