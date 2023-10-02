@@ -24,6 +24,7 @@ export default function ListBar({lists, setLists, currentList, setCurrentList}) 
 
     return (
         <div className='list-bar'>
+            <img className='logo' src = {"\\src\\components\\todo_list.svg.png"} alt = 'logo'/>
             <h1 className='list-bar-title'>ToDoLists</h1>
             <div className='list-container'>
                 <AddListButton handleClick={handleAddList}/>

@@ -1,3 +1,10 @@
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+}
+
 .list-bar-title {
     font-size: 1.5em;
     font-weight: bold;
