@@ -1,14 +1,11 @@
 import AddListButton from './AddListButton.jsx';
 
-export default function ListBar(props) {
-    const lists = props.lists;
-    const setLists = props.setLists;
-    
+export default function ListBar({lists, setLists, currentList, setCurrentList}) {
     function handleAddList() {
         const title = prompt("Enter the title of the new list:");
         if (title) {
             setLists((prevLists) => {
-                return [...prevLists, {title: title}];
+                return [...prevLists, {title: title, tasks: {}}];
             });
         }
     }
@@ -21,7 +18,11 @@ export default function ListBar(props) {
                 {
                     lists.map((nowList) => {
                         return (
-                        <div key={nowList.title} className='list over-hide'>
+                        <div 
+                        key = {nowList.title} 
+                        className= {`list over-hide ${currentList.title === nowList.title ? 'selected-list' : null}`}
+                        onClick = {() => setCurrentList(nowList)}
+                        >
                             {nowList.title}
                         </div>
                         );

@@ -23,6 +23,11 @@
     cursor: pointer;
 }
 
+.selected_list {
+    color: #fff;
+    background-color: #3d87e8c4;
+}
+
 .list:hover {
     color: #fff;
     background-color: #3d87e8c4;
