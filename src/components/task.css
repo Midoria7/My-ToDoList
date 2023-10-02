@@ -1,0 +1,28 @@
+.task-box-header {
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    padding-top: 22px;
+  }
+  .task-box-title {
+    font-size: 2.5em;
+    padding: 25px 0;
+    font-weight: 500;
+  }
+  
+  .delete-list-button {
+    font-size: 0.5em;
+    margin-left: 20px;
+    padding: 5px 5px;
+    background: none;
+    border: 2px solid rgb(91, 4, 4);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  
+  .delete-list-button:hover {
+    color: #fff;
+    background-color: rgb(91, 4, 4);
+    transition: 0.5s;
+  }

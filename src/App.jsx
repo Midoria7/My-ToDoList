@@ -19,7 +19,12 @@ export default function App() {
 			currentList = {currentList}
 			setCurrentList = {setCurrentList}
 			/>
-			<TaskBox />
+			<TaskBox 
+			lists = {lists}
+			setLists = {setLists}
+			currentList = {currentList}
+			setCurrentList = {setCurrentList}
+			/>
 		</div>
 	);
 }
