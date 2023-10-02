@@ -1,14 +1,37 @@
+import uuid from "react-uuid";
 import TaskGroup from "./TaskGroup";
 import { DragDropContext } from "react-beautiful-dnd";
 
 export default function TaskBox({lists, setLists, currentList, setCurrentList}) {
-    function handleRemove() {
+    function handleDeleteList() {
         if (confirm("Delete this list?"))
             setLists((prevLists) => {
                 const newLists = prevLists.filter((list) => list.title !== currentList.title);
                 if (newLists.length === 0) {
-                    setLists([{title: "Default List", tasks: []}]);
-                    setCurrentList({title: "Default List", tasks: []});
+                    setLists([{
+                        title: "Default List",
+                        ["To Do"]: [
+                            {
+                                name: "Task 1",
+                                id: uuid(),
+                                descrip: "Description 1",
+                            },
+                        ],
+                        ["Doing"]: [],
+                        ["Done"]: [],
+                    },]);
+                    setCurrentList({
+                        title: "Default List",
+                        ["To Do"]: [
+                            {
+                                name: "Task 1",
+                                id: uuid(),
+                                descrip: "Description 1",
+                            },
+                        ],
+                        ["Doing"]: [],
+                        ["Done"]: [],
+                    },);
                 } else {
                     setCurrentList(newLists[0]);
                 }
@@ -16,7 +39,7 @@ export default function TaskBox({lists, setLists, currentList, setCurrentList}) 
             });
     }
 
-    function handleRename() {
+    function handleRenameList() {
         const title = prompt("Enter new list title:");
         if (title) {
             if (lists.find((list) => list.title === title)) {
@@ -81,8 +104,8 @@ export default function TaskBox({lists, setLists, currentList, setCurrentList}) 
         <div className = "task-box">
             <header className = "task-box-header">
                 <h1 className = "task-box-title">Tasks</h1>
-                <button className = "rename-list-button" onClick = {handleRename}> Rename </button>
-                <button className = "delete-list-button" onClick = {handleRemove}> Delete </button>
+                <button className = "rename-list-button" onClick = {handleRenameList}> Rename </button>
+                <button className = "delete-list-button" onClick = {handleDeleteList}> Delete </button>
             </header>
             <DragDropContext onDragEnd = {(result) => handleDragEnd(result)}>
                 <div className = "task-box-body">
