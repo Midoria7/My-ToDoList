@@ -17,7 +17,7 @@
     background-color: #fefefe;
 }
 
-.add-button {
+.add-list-button {
     width: 80%;
 	height: 45px;
 	font-size: 1.3em;
@@ -31,6 +31,6 @@
 	outline: none;
 }
 
-.add-button:hover {
+.add-list-button:hover {
 	background-color: #a1a8ef;
 }

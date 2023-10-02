@@ -6,7 +6,7 @@ import TaskBox from './components/TaskBox';
 
 export default function App() {
 	const [lists, setLists] = useState([
-		{title: "Default List", tasks: []}
+		{title: "Default List"}
 	]);
 	const [currentLists, setCurrentLists] = useState(null);
 	return (
