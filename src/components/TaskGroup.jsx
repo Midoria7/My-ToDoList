@@ -1,5 +1,7 @@
 import AddTaskButton from "./AddTaskButton";
 import Task from "./Task";
+import {Droppable, Draggable} from "react-beautiful-dnd";
+import uuid from "react-uuid";
 
 export default function TaskGroup({status, lists, setLists, currentList}) {
     function handleAdd() {
@@ -12,10 +14,10 @@ export default function TaskGroup({status, lists, setLists, currentList}) {
                 const temp = newLists[index];
                 newLists.splice(index, 1, 
                     {
-                        title: currentList.title,
-                        tasks: [
-                            ...temp.tasks,
-                            {name: name, descrip: descrip, status: status}
+                        ...temp,
+                        [status]: [
+                            ...temp[status],
+                            {name: name, id: uuid(), descrip: descrip}
                         ]
                     }
                 );
@@ -28,21 +30,43 @@ export default function TaskGroup({status, lists, setLists, currentList}) {
         <div className = "task-group">
             {status}
             <AddTaskButton handleClick = {handleAdd} />
-            <div className = "task-container">
+            <Droppable droppableId = {status}>
                 {
-                    lists.find((list) => list.title === currentList.title).tasks.map((task) => {
-                        if (task.status === status) {
-                            return (
-                                <Task 
-                                key = {task.name}
-                                name = {task.name}
-                                descrip = {task.descrip}
-                                />
-                            );
-                        }
-                    })
+                    (provided, snapshot) => {
+                        return (
+                            <div
+                            className = "task-container"
+                            ref = {provided.innerRef}
+                            {...provided.droppableProps}
+                            >
+                                {
+                                    lists.find((list) => list.title === currentList.title)
+                                    ?.[status].map((task, index) => (
+                                        <Draggable
+                                        key = {task.id}
+                                        draggableId = {task.id}
+                                        index = {index}
+                                        >
+                                            {
+                                                (provided, snapshot) => (
+                                                    <Task 
+                                                    name = {task.name}
+                                                    descrip = {task.descrip}
+                                                    id = {task.id}
+                                                    provided = {provided}
+                                                    snapshot = {snapshot}
+                                                    />
+                                                )
+                                            }
+                                        </Draggable>
+                                    ))
+                                }
+                                {provided.placeholder}
+                            </div>
+                        )
                     }
-            </div>
+                }
+            </Droppable>
         </div>
     )
 }

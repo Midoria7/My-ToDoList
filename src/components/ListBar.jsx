@@ -5,7 +5,15 @@ export default function ListBar({lists, setLists, currentList, setCurrentList}) 
         const title = prompt("Enter the title of the new list:");
         if (title) {
             setLists((prevLists) => {
-                return [...prevLists, {title: title, tasks: []}];
+                return [
+                    ...prevLists, 
+                    {
+                        title: title,
+                        ["To Do"]: [],
+                        ["Doing"]: [],
+                        ["Done"]: [],
+                    }
+                ];
             });
         }
     }

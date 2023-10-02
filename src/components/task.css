@@ -38,7 +38,6 @@
 
 .task-group {
     width: 250px;
-    height: 300px;
     max-height: 700px;
     background-color: #eaf6fe;
     border-radius: 15px;
@@ -46,6 +45,7 @@
     font-size: 1.4em;
     font-weight: 400;
     margin: 13px auto;
+    transition: 1s;
 }
 
 .add-task-button {
@@ -69,19 +69,24 @@
 
 .task-container {
     width: 100%;
+    min-height: 100px;
     max-height: 600px;
     /* background-color: lightblue; */
     overflow: auto;
 }
 
 .task {
-    width: calc(100% - 30px);
+    position: releative;
+    width: calc(100% - 33px);
     background-color: #fff;
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 18px;
     cursor: pointer;
     transition: 0.5s;
+    user-select: none;
+    border: 1px solid #ccc;
+    outline: none;
 }
 
 .task:hover {
@@ -108,4 +113,20 @@
     word-wrap: break-word;
     padding: 8px;
     line-height: 1.1em;
+}
+
+.remove-bar {
+    text-align: end;
+    font-size: 3.5em;
+    font-weight: 300;
+    color: #888;
+    line-height: 0.1em;
+    transition: 0.5s;
+}
+
+.remove-bar:hover {
+    color: red;
+    font-size: 9em;
+    line-height: 0.05em;
+    transition: 0.5s;
 }
