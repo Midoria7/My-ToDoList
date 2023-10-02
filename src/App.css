@@ -1,18 +1,36 @@
 .App {
-  display: flex;
+    display: flex;
 }
 
 .list-bar {
-  flex-shrink: 1;
-  min-width: 220px;
-  text-align: center;
-  width: 300px;
-  height: 100vh;
-  border-right: 2px solid #ededed;
+    flex-shrink: 1;
+    min-width: 220px;
+    text-align: center;
+    width: 300px;
+    height: 100vh;
+    border-right: 2px solid #ededed;
 }
 
 .task-box {
-  flex: 1;
-  min-width: 1070px;
-  background-color: #fefefe;
+    flex: 1;
+    min-width: 1070px;
+    background-color: #fefefe;
+}
+
+.add-button {
+    width: 80%;
+	height: 45px;
+	font-size: 1.3em;
+	line-height: 45px;
+	background-color: #eaf1f0;
+	margin: 0 auto;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	cursor: pointer;
+	transition: 0.5s;
+	outline: none;
+}
+
+.add-button:hover {
+	background-color: #a1a8ef;
 }

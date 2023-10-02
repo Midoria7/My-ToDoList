@@ -1,5 +1,3 @@
-const TaskBox = () => {
+export default function TaskBox() {
     return <div className = "task-box"></div>
-};
-
-export default TaskBox;
+}

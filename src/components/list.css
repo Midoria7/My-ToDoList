@@ -1,0 +1,36 @@
+.list-bar-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.list-container {
+    height: 850px;
+    overflow-y: auto;
+    padding: 0 30px;
+}
+
+.list {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    max-width: 230px;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.list:hover {
+    color: #fff;
+    background-color: #3d87e8c4;
+    transition: 0.5s;
+}
+
+.over-hide {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
