@@ -1,16 +1,16 @@
-import './App.css'
-import './components/list.css'
-import './components/task.css'
-import React, { useMemo, useState, useCallback, useEffect } from 'react';
-import uuid from 'react-uuid';
-import Listbar from './components/ListBar';
-import TaskBox from './components/TaskBox';
+import "./App.css"
+import "./components/list.css"
+import "./components/task.css"
+import React, { useMemo, useState, useCallback, useEffect } from "react";
+import uuid from "react-uuid";
+import Listbar from "./components/ListBar";
+import TaskBox from "./components/TaskBox";
 
 export default function App() {
 	const [lists, setLists] = useState(
 		() => {
-			return localStorage.getItem('lists')
-			? JSON.parse(localStorage.getItem('lists'))
+			return localStorage.getItem("lists")
+			? JSON.parse(localStorage.getItem("lists"))
 			: [
 				{
 					title: "Default List",
@@ -31,7 +31,7 @@ export default function App() {
 	
 	function localStore() {
 		if (!lists.length) {
-			localStorage.setItem('lists', JSON.stringify([
+			localStorage.setItem("lists", JSON.stringify([
 				{
 					title: "Default List",
 					["To Do"]: [
@@ -45,9 +45,9 @@ export default function App() {
 					["Done"]: [],
 				}, 
 			]));
-			setLists(JSON.parse(localStorage.getItem('lists')));
+			setLists(JSON.parse(localStorage.getItem("lists")));
 		} else {
-			localStorage.setItem('lists', JSON.stringify(lists));
+			localStorage.setItem("lists", JSON.stringify(lists));
 		}
 	}
 

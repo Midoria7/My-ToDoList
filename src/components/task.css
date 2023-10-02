@@ -118,7 +118,7 @@
 }
 
 .task-name::before {
-    content: '●';
+    content: "●";
     font-style: normal;
     color: rgb(122, 206, 230);
     margin-right: 10px;
