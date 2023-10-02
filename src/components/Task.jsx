@@ -1,4 +1,4 @@
-export default function Task({name, descrip, provided, snapshot}) {
+export default function Task({name, descrip, provided, snapshot, id, handleRemove}) {
     return (
         <div 
         className = "task"
@@ -8,6 +8,7 @@ export default function Task({name, descrip, provided, snapshot}) {
         >
             <div className = "task-name over-hide">{name}</div>
             <p className = "task-descrip">{descrip}</p>
+            <div className = "delete-task-button" onClick = {() => handleRemove(id)}>-</div>
         </div>
     );
 }

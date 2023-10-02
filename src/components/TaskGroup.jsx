@@ -26,6 +26,26 @@ export default function TaskGroup({status, lists, setLists, currentList}) {
         }
     }
 
+    function handleRemove(id) {
+        if (confirm("Delete this task?")) {
+            setLists((prevLists) => 
+                prevLists.map((list) => {
+                    if (list.title === currentList.title) {
+                        const taskList = list[status];
+                        const index = taskList.findIndex((task) => task.id === id);
+                        taskList.splice(index, 1);
+                        return {
+                            ...list,
+                            [status]: [...taskList]
+                        }
+                    } else {
+                        return list;
+                    }
+                })
+            );
+        }
+    }
+
     return (
         <div className = "task-group">
             {status}
@@ -55,6 +75,7 @@ export default function TaskGroup({status, lists, setLists, currentList}) {
                                                     id = {task.id}
                                                     provided = {provided}
                                                     snapshot = {snapshot}
+                                                    handleRemove = {handleRemove}
                                                     />
                                                 )
                                             }

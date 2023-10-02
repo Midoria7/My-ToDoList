@@ -15,7 +15,7 @@
     margin-left: 20px;
     padding: 5px 5px;
     background: none;
-    border: 2px solid rgb(91, 4, 4);
+    border: 2px solid rgb(253, 95, 95);
     border-radius: 5px;
     cursor: pointer;
     transition: 0.5s;
@@ -23,7 +23,7 @@
 
 .delete-list-button:hover {
     color: #fff;
-    background-color: rgb(91, 4, 4);
+    background-color: rgb(253, 95, 95);
     transition: 0.5s;
 }
 
@@ -115,7 +115,7 @@
     line-height: 1.1em;
 }
 
-.remove-bar {
+.delete-task-button {
     text-align: end;
     font-size: 3.5em;
     font-weight: 300;
@@ -124,9 +124,9 @@
     transition: 0.5s;
 }
 
-.remove-bar:hover {
-    color: red;
-    font-size: 9em;
+.delete-task-button:hover {
+    color: rgb(253, 95, 95);
+    font-size: 4em;
     line-height: 0.05em;
     transition: 0.5s;
 }
