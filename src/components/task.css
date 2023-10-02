@@ -80,6 +80,13 @@
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 18px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.task:hover {
+    background-color: #c7e0f1;
+    transition: 0.5s;
 }
 
 .task-name {
