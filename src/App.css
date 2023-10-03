@@ -16,21 +16,3 @@
     min-width: 950px;
     background-color: #fefefe;
 }
-
-.add-list-button {
-    width: 80%;
-	height: 45px;
-	font-size: 1.3em;
-	line-height: 45px;
-	background-color: #eaf1f0;
-	margin: 0 auto;
-	border-radius: 10px;
-	margin-bottom: 20px;
-	cursor: pointer;
-	transition: 0.5s;
-	outline: none;
-}
-
-.add-list-button:hover {
-	background-color: #a1a8ef;
-}

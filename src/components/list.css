@@ -1,8 +1,56 @@
 .logo {
     width: 100px;
     height: 100px;
+    /* margin: auto; */
+    margin-top: 75px;
+    text-align: center;
+}
+
+.search-list-button {
+    width: 50px;
+    height: 50px;
     margin: auto;
     text-align: center;
+    border-radius: 10px;
+    /* border: 1px solid #3d87e8c4; */
+    background-color: #fff;
+    font-size: 0.5em;
+    font-weight: 400;
+    margin-bottom: 20px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.search-list-button:hover {
+    background-color: #f0f0f0;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.search-icon {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    margin-top: 25%;
+}
+
+.add-list-button {
+    width: 80%;
+	height: 45px;
+	font-size: 1.3em;
+	line-height: 45px;
+	background-color: #f0f0f0;
+	margin: 0 auto;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	cursor: pointer;
+	transition: 0.5s;
+	outline: none;
+}
+
+.add-list-button:hover {
+    color: #fff;
+	background-color: #403de8c4;
 }
 
 .list-bar-title {
@@ -28,6 +76,7 @@
     margin-bottom: 10px;
     transition: 0.5s;
     cursor: pointer;
+    background-color: #f0f0f0;
 }
 
 .selected-list {

@@ -1,4 +1,5 @@
 import AddListButton from "./AddListButton.jsx";
+import SearchListButton from "./SearchListButton.jsx";
 
 export default function ListBar({lists, setLists, currentList, setCurrentList}) {
     function handleAddList() {
@@ -22,25 +23,38 @@ export default function ListBar({lists, setLists, currentList, setCurrentList}) 
         }
     }
 
+    function handleSearchList() {
+        const search = prompt("Enter the name of the list you want to search:");
+        if (search) {
+            const list = lists.find((list) => list.title === search);
+            if (list) {
+                setCurrentList(list);
+            } else {
+                alert("List not found!");
+            }
+        }
+    }
+
     return (
         <div className="list-bar">
             <img className="logo" src = {"\\src\\components\\todo_list.svg.png"} alt = "logo"/>
             <h1 className="list-bar-title">ToDoLists</h1>
             <div className="list-container">
-                <AddListButton handleClick={handleAddList}/>
+                <SearchListButton handleClick = {handleSearchList}/>
                 {
                     lists.map((nowList) => {
                         return (
-                        <div 
-                        key = {nowList.title} 
-                        className= {`list over-hide ${currentList.title === nowList.title ? "selected-list" : null}`}
-                        onClick = {() => setCurrentList(nowList)}
-                        >
+                            <div 
+                            key = {nowList.title} 
+                            className= {`list over-hide ${currentList.title === nowList.title ? "selected-list" : null}`}
+                            onClick = {() => setCurrentList(nowList)}
+                            >
                             {nowList.title}
                         </div>
                         );
                     })
                 }
+                <AddListButton handleClick = {handleAddList}/>
             </div>
         </div>
     );
