@@ -2,44 +2,39 @@ import uuid from "react-uuid";
 import TaskGroup from "./TaskGroup";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Dropdown } from "rsuite";
+import { get, set } from 'idb-keyval';
+
 
 export default function TaskBox({lists, setLists, currentList, setCurrentList}) {
     function handleDeleteList() {
-        if (confirm("Delete this list?"))
-            setLists((prevLists) => {
-                const newLists = prevLists.filter((list) => list.title !== currentList.title);
+        if (confirm("Delete this list?")) {
+            get('lists').then(prevLists => {
+                let newLists = prevLists.filter((list) => list.title !== currentList.title);
+                let newCurrentList = null;
                 if (newLists.length === 0) {
-                    setLists([{
+                    newCurrentList = {
                         title: "Default List",
-                        ["To Do"]: [
+                        "To Do": [
                             {
                                 name: "Task 1",
                                 id: uuid(),
                                 descrip: "Description 1",
                             },
                         ],
-                        ["Doing"]: [],
-                        ["Done"]: [],
-                    },]);
-                    setCurrentList({
-                        title: "Default List",
-                        ["To Do"]: [
-                            {
-                                name: "Task 1",
-                                id: uuid(),
-                                descrip: "Description 1",
-                            },
-                        ],
-                        ["Doing"]: [],
-                        ["Done"]: [],
-                    },);
+                        "Doing": [],
+                        "Done": [],
+                    };
+                    newLists = [newCurrentList];
                 } else {
-                    setCurrentList(newLists[0]);
+                    newCurrentList = newLists[0];
                 }
-                return newLists;
+                setLists(newLists);
+                setCurrentList(newCurrentList);
+                set('lists', newLists);  // Update IndexedDB
             });
+        }
     }
-
+    
     function handleRenameList() {
         const title = prompt("Enter new list title:");
         if (title) {

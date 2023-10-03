@@ -10,10 +10,9 @@ This is the practice project for the BYR.
 
 + 添加/删除/查找/重命名 ToDoList
 + 添加/删除/修改 Tasks
-+ 通过拖拽将 Tasks 移动到其他 Status
-+ 通过 `localStorage` 保存数据
++ 通过拖拽改变 Tasks 的顺序或状态
++ 通过 `IndexedDB` 保存数据
 
 ## To Do
 
 + [ ] Mobile 端适配
-+ [ ] 使用其他方法进行数据存储（如 `IndexedDB`）
