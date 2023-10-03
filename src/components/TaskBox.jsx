@@ -1,6 +1,7 @@
 import uuid from "react-uuid";
 import TaskGroup from "./TaskGroup";
 import { DragDropContext } from "react-beautiful-dnd";
+import { Dropdown } from "rsuite";
 
 export default function TaskBox({lists, setLists, currentList, setCurrentList}) {
     function handleDeleteList() {
@@ -63,6 +64,15 @@ export default function TaskBox({lists, setLists, currentList, setCurrentList}) 
         }
     }
 
+    function DropdownMenu() {
+        return (
+            <Dropdown className = "dropdown-menu">
+                <Dropdown.Item className = "rename-list-button" onClick = {handleRenameList}> Rename List </Dropdown.Item>
+                <Dropdown.Item className = "delete-list-button" onClick = {handleDeleteList}> Delete List </Dropdown.Item>
+            </Dropdown>
+        );
+    }
+
     function handleDragEnd(result) {
         if (!result.destination) return;
         const {source, destination} = result;
@@ -103,9 +113,10 @@ export default function TaskBox({lists, setLists, currentList, setCurrentList}) 
     return (
         <div className = "task-box">
             <header className = "task-box-header">
-                <h1 className = "task-box-title">Tasks</h1>
-                <button className = "rename-list-button" onClick = {handleRenameList}> Rename </button>
-                <button className = "delete-list-button" onClick = {handleDeleteList}> Delete </button>
+                <h1 className = "task-box-title">{currentList.title}</h1>
+                {/* <button className = "rename-list-button" onClick = {handleRenameList}> Rename </button>
+                <button className = "delete-list-button" onClick = {handleDeleteList}> Delete </button> */}
+                <DropdownMenu />
             </header>
             <DragDropContext onDragEnd = {(result) => handleDragEnd(result)}>
                 <div className = "task-box-body">
