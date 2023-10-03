@@ -109,8 +109,6 @@ export default function TaskBox({lists, setLists, currentList, setCurrentList}) 
         <div className = "task-box">
             <header className = "task-box-header">
                 <h1 className = "task-box-title">{currentList.title}</h1>
-                {/* <button className = "rename-list-button" onClick = {handleRenameList}> Rename </button>
-                <button className = "delete-list-button" onClick = {handleDeleteList}> Delete </button> */}
                 <DropdownMenu />
             </header>
             <DragDropContext onDragEnd = {(result) => handleDragEnd(result)}>
